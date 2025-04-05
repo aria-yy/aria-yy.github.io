@@ -77,6 +77,36 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CodeStudying" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/04/05/CodeStudying/" class="article-date">
+  <time class="dt-published" datetime="2025-04-05T07:40:14.863Z" itemprop="datePublished">2025-04-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#define _SEQLIST_H_</span><br><span class="line">#define SEQLIST_INIT_SIZE 8//</span><br><span class="line">//抽象数据类型</span><br><span class="line">typedef int Data;</span><br><span class="line">typedef struct SeqList</span><br><span class="line">&#123;</span><br><span class="line">	Data* arr;//指向一维数组的指针</span><br><span class="line">	int capacity;//顺序表的容量</span><br><span class="line">	int size;//当前存储的数据的个数</span><br><span class="line">&#125;SeqList;</span><br><span class="line"></span><br><span class="line">//创建顺序表</span><br><span class="line">SeqList* createSeqList();</span><br><span class="line">//尾部插入</span><br><span class="line">void push_back(SeqList* list, Data val);</span><br><span class="line">//头部插入</span><br><span class="line">void push_front(SeqList* list, Data val);</span><br><span class="line">//指定位置插入</span><br><span class="line">void insert(SeqList* list, int pos, Data val);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//输出顺序表中的数据</span><br><span class="line">void show_list(SeqList* list);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//小tips：alt+回车 创建声明和定义</span><br><span class="line">#endif // !_SEQLIST_H_</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aria-yy.github.io/2025/04/05/CodeStudying/" data-id="cm93ws6fs0000d0bp94d2b83v" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Hello-Myfirist" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/04/05/Hello-Myfirist/" class="article-date">
@@ -189,6 +219,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2025/04/05/CodeStudying/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2025/04/05/Hello-Myfirist/">(no title)</a>
