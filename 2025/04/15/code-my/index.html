@@ -19,27 +19,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="电话号码升位(拷贝构造函数)题目：定义一个电话号码类CTelNumber,包含1个字符指针数据成员,以及构造、析构、打印及拷贝构造函数。 字符指针是用于动态创建一个字符数组，然后保存外来输入的电话号码 构造函数的功能是为对象设置键盘输入的7位电话号码， 拷贝构造函数的功能是用原来7位号码的对象升位为8位号码对象,也就是说拷贝构造的对象是源对象的升级.电话升位的规则是原2、3、4开头的电话号码前面加">
+    <meta name="description" content="题目：定义一个电话号码类CTelNumber,包含1个字符指针数据成员,以及构造、析构、打印及拷贝构造函数。 字符指针是用于动态创建一个字符数组，然后保存外来输入的电话号码 构造函数的功能是为对象设置键盘输入的7位电话号码， 拷贝构造函数的功能是用原来7位号码的对象升位为8位号码对象,也就是说拷贝构造的对象是源对象的升级.电话升位的规则是原2、3、4开头的电话号码前面加8，原5、6、7、8开头的前">
 <meta property="og:type" content="article">
-<meta property="og:title" content="code_my">
+<meta property="og:title" content="电话号码升位(拷贝构造函数)">
 <meta property="og:url" content="http://example.com/2025/04/15/code-my/index.html">
 <meta property="og:site_name" content="Aria&#39;s blog">
-<meta property="og:description" content="电话号码升位(拷贝构造函数)题目：定义一个电话号码类CTelNumber,包含1个字符指针数据成员,以及构造、析构、打印及拷贝构造函数。 字符指针是用于动态创建一个字符数组，然后保存外来输入的电话号码 构造函数的功能是为对象设置键盘输入的7位电话号码， 拷贝构造函数的功能是用原来7位号码的对象升位为8位号码对象,也就是说拷贝构造的对象是源对象的升级.电话升位的规则是原2、3、4开头的电话号码前面加">
+<meta property="og:description" content="题目：定义一个电话号码类CTelNumber,包含1个字符指针数据成员,以及构造、析构、打印及拷贝构造函数。 字符指针是用于动态创建一个字符数组，然后保存外来输入的电话号码 构造函数的功能是为对象设置键盘输入的7位电话号码， 拷贝构造函数的功能是用原来7位号码的对象升位为8位号码对象,也就是说拷贝构造的对象是源对象的升级.电话升位的规则是原2、3、4开头的电话号码前面加8，原5、6、7、8开头的前">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-04-14T16:14:45.000Z">
-<meta property="article:modified_time" content="2025-04-14T16:22:14.576Z">
+<meta property="article:modified_time" content="2025-04-17T15:49:03.730Z">
 <meta property="article:author" content="Aria Chen">
-<meta property="article:tag" content="-code">
+<meta property="article:tag" content="code_solution">
 <meta name="twitter:card" content="summary">
 
 
 <link rel="canonical" href="http://example.com/2025/04/15/code-my/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2025/04/15/code-my/","path":"2025/04/15/code-my/","title":"code_my"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2025/04/15/code-my/","path":"2025/04/15/code-my/","title":"电话号码升位(拷贝构造函数)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>code_my | Aria's blog</title>
+<title>电话号码升位(拷贝构造函数) | Aria's blog</title>
   
 
 
@@ -128,7 +128,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E5%8D%87%E4%BD%8D-%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">电话号码升位(拷贝构造函数)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">题目：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">代码：</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">题目：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">代码：</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -147,7 +147,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -187,12 +187,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="code_my | Aria's blog">
+      <meta itemprop="name" content="电话号码升位(拷贝构造函数) | Aria's blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          code_my
+          电话号码升位(拷贝构造函数)
         </h1>
 
         <div class="post-meta-container">
@@ -202,9 +202,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2025-04-15 00:14:45 / Modified: 00:22:14" itemprop="dateCreated datePublished" datetime="2025-04-15T00:14:45+08:00">2025-04-15</time>
+      <time title="Created: 2025-04-15 00:14:45" itemprop="dateCreated datePublished" datetime="2025-04-15T00:14:45+08:00">2025-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-04-17 23:49:03" itemprop="dateModified" datetime="2025-04-17T23:49:03+08:00">2025-04-17</time>
     </span>
 
   
@@ -216,7 +222,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="电话号码升位-拷贝构造函数"><a href="#电话号码升位-拷贝构造函数" class="headerlink" title="电话号码升位(拷贝构造函数)"></a>电话号码升位(拷贝构造函数)</h1><h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><p>定义一个电话号码类CTelNumber,包含1个字符指针数据成员,以及构造、析构、打印及拷贝构造函数。</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><p>定义一个电话号码类CTelNumber,包含1个字符指针数据成员,以及构造、析构、打印及拷贝构造函数。</p>
 <p>字符指针是用于动态创建一个字符数组，然后保存外来输入的电话号码</p>
 <p>构造函数的功能是为对象设置键盘输入的7位电话号码，</p>
 <p>拷贝构造函数的功能是用原来7位号码的对象升位为8位号码对象,也就是说拷贝构造的对象是源对象的升级.电话升位的规则是原2、3、4开头的电话号码前面加8，原5、6、7、8开头的前面加2。</p>
@@ -233,7 +239,7 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/code/" rel="tag"># -code</a>
+              <a href="/tags/code-solution/" rel="tag"># code_solution</a>
           </div>
 
         
