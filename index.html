@@ -135,13 +135,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -158,6 +158,81 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/20/publish-subscribe/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Aria Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Aria's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/20/publish-subscribe/" class="post-title-link" itemprop="url">订阅和发布_话题通信探索</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-20 16:47:29 / Modified: 16:59:29" itemprop="dateCreated datePublished" datetime="2025-04-20T16:47:29+08:00">2025-04-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="1-话题订阅与发布"><a href="#1-话题订阅与发布" class="headerlink" title="1.话题订阅与发布"></a>1.话题订阅与发布</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> rclpy</span><br><span class="line"><span class="keyword">from</span> rclpy.node <span class="keyword">import</span> Node</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> example_interfaces.msg <span class="keyword">import</span> String</span><br><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Queue</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">NovelPubNode</span>(<span class="title class_ inherited__">Node</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,node_name</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__(node_name)</span><br><span class="line">        <span class="variable language_">self</span>.get_logger().info(<span class="string">f&#x27;<span class="subst">&#123;node_name&#125;</span>,启动！！！！&#x27;</span>)</span><br><span class="line">        <span class="variable language_">self</span>.novels_queue=Queue() <span class="comment">#创建队列 存数据</span></span><br><span class="line">        <span class="variable language_">self</span>.novel_publisher_ = <span class="variable language_">self</span>.create_publisher(String,<span class="string">&#x27;novel&#x27;</span>,<span class="number">10</span>)</span><br><span class="line">        <span class="variable language_">self</span>.timer_ = <span class="variable language_">self</span>.create_timer(<span class="number">5</span>,<span class="variable language_">self</span>.timer_callback)<span class="comment">#创建定时器</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">timer_callback</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment">#self.novel_publisher_.publish()</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.novels_queue.qsize()&gt;<span class="number">0</span>:<span class="comment">#判断队列大小</span></span><br><span class="line">            line=<span class="variable language_">self</span>.novels_queue.get()</span><br><span class="line">            msg=String()<span class="comment">#组装</span></span><br><span class="line">            msg.data=line</span><br><span class="line">            <span class="variable language_">self</span>.novel_publisher_.publish(msg)</span><br><span class="line">            <span class="variable language_">self</span>.get_logger().info(<span class="string">f&#x27;发布了：<span class="subst">&#123;msg&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">download</span>(<span class="params">self,url</span>):</span><br><span class="line">        response = requests.get(url)</span><br><span class="line">        response.encoding = <span class="string">&#x27;utf-8&#x27;</span></span><br><span class="line">        text = response.text</span><br><span class="line">        <span class="variable language_">self</span>.get_logger().info(<span class="string">f&#x27;下载<span class="subst">&#123;url&#125;</span>,<span class="subst">&#123;<span class="built_in">len</span>(text)&#125;</span>&#x27;</span>)</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> response.text.splitlines():</span><br><span class="line">            <span class="variable language_">self</span>.novels_queue.put(line)<span class="comment">#按行分割</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    rclpy.init()</span><br><span class="line">    node = NovelPubNode(<span class="string">&#x27;novel_pub&#x27;</span>)</span><br><span class="line">    node.download(<span class="string">&#x27;http://0.0.0.0:8000/novel1.txt&#x27;</span>)</span><br><span class="line">    rclpy.spin(node)</span><br><span class="line">    rclpy.shutdown()</span><br></pre></td></tr></table></figure>
+
+<p>ps：</p>
+<p>1.执行ros2 run demo_python_topic novel_pub_node时要同时在另一个终端打开服务器python3 -m http.s<br>erver（这里没注意到当时拖了好几周才解决）</p>
+<p>2.ros2 topic echo &#x2F;novel早于ros2 run demo_python_topic novel_pub_node才能接受到完整的内容</p>
+<p>先启动订阅者，再启动发布者（服啦 每次都先启动完发布者，再开订阅者，我说怎么有时候可以收到最后两行。。。）</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
