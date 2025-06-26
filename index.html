@@ -135,7 +135,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -158,6 +158,157 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/06/26/%E8%AE%A1%E9%87%8D%E8%BD%AC%E6%8D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Aria Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Aria's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/06/26/%E8%AE%A1%E9%87%8D%E8%BD%AC%E6%8D%A2/" class="post-title-link" itemprop="url">计重转换</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-06-26 21:57:00 / Modified: 22:00:35" itemprop="dateCreated datePublished" datetime="2025-06-26T21:57:00+08:00">2025-06-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="1.题目描述"></a>1.题目描述</h1><p>目前国际计重最基本的单位是克。在古代各个国家的计重单位是不同的。</p>
+<p>中国使用斤、两、钱来表示重量，其中1斤&#x3D;10两，1两&#x3D;10钱</p>
+<p>中国计重单位与克的关系为：1斤&#x3D;500克，1两&#x3D;50克，1钱&#x3D;5克</p>
+<p>英国使用磅、盎司、打兰来表示重量，其中1磅&#x3D;16盎司，1盎司&#x3D;16打兰</p>
+<p>英国计重单位与克的关系为：1磅&#x3D;512克，1盎司&#x3D;32克，1打兰&#x3D;2克</p>
+<p>以下参考代码包含了抽象类Weight，中国计重和英国计重都继承了抽象类。</p>
+<p>中国计重类新增了斤、两、钱三个属性，并新增了一个操作：计重转换Convert。</p>
+<p>Convert能够把输入的克数转成中国计重，例如1234克转成2斤4两6钱4克，并且把数值放入斤、两、钱、克四个属性中</p>
+<p>英国计重类新增了磅、盎司、打兰三个属性，并新增了两个操作：</p>
+<p>1、计重转换Convert，功能与上述类似，例如2345克转成4磅9盎司4打兰1克，并且把数值放入对应的四个属性中</p>
+<p>2、计重等价，重载类型转换运算符，实现将英国计重类的对象转换成中国计重类的对象，例如英国计重类对象en（2磅2盎司11打兰1克）等价于（转换成）中国计重类对象cn（2斤2两2钱1克）。</p>
+<h1 id="2-代码"><a href="#2-代码" class="headerlink" title="2.代码"></a>2.代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _CRT_SECURE_NO_WARNINGS</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CN</span>; <span class="comment">//提前声明</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EN</span>; <span class="comment">//提前声明</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 抽象类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Weight</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">	<span class="type">char</span> kind[<span class="number">20</span>]; <span class="comment">//计重类型</span></span><br><span class="line">	<span class="type">int</span> gram; <span class="comment">// 克</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">Weight</span>(<span class="type">const</span> <span class="type">char</span> tk[] = <span class="string">&quot;no name&quot;</span>, <span class="type">int</span> tg = <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">strcpy</span>(kind, tk);</span><br><span class="line">		gram = tg;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">print</span><span class="params">(ostream&amp; out)</span> </span>= <span class="number">0</span>; <span class="comment">// 输出不同类型的计重信息</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 中国计重</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CN</span> : <span class="keyword">public</span> Weight</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="type">int</span> jin;</span><br><span class="line">	<span class="type">int</span> liang;</span><br><span class="line">	<span class="type">int</span> qian;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">CN</span>(<span class="type">int</span> j, <span class="type">int</span> l, <span class="type">int</span> q, <span class="type">int</span> g, <span class="type">const</span> <span class="type">char</span>* k) :<span class="built_in">jin</span>(j), <span class="built_in">liang</span>(l), <span class="built_in">qian</span>(q), <span class="built_in">Weight</span>(k, g) &#123;&#125;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">Convert</span><span class="params">(<span class="type">int</span> g)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		jin = g / <span class="number">500</span>;</span><br><span class="line">		g -= jin * <span class="number">500</span>;</span><br><span class="line">		liang = g / <span class="number">50</span>;</span><br><span class="line">		g -= liang * <span class="number">50</span>;</span><br><span class="line">		qian = g / <span class="number">5</span>;</span><br><span class="line">		g -= qian * <span class="number">5</span>;</span><br><span class="line">		gram = g;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(ostream&amp; out)</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		out &lt;&lt; *<span class="keyword">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream&amp; os, <span class="type">const</span> CN&amp; res);</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 英国计重</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EN</span> : <span class="keyword">public</span> Weight</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">	<span class="type">int</span> bang;</span><br><span class="line">	<span class="type">int</span> si;</span><br><span class="line">	<span class="type">int</span> lan;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">EN</span>(<span class="type">int</span> b, <span class="type">int</span> s, <span class="type">int</span> l, <span class="type">int</span> g, <span class="type">const</span> <span class="type">char</span>* k) :<span class="built_in">bang</span>(b), <span class="built_in">si</span>(s), <span class="built_in">lan</span>(l), <span class="built_in">Weight</span>(k, g) &#123;&#125;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">Convert</span><span class="params">(<span class="type">int</span> g)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		bang = g / <span class="number">512</span>;</span><br><span class="line">		g -= bang * <span class="number">512</span>;</span><br><span class="line">		si = g / <span class="number">32</span>;</span><br><span class="line">		g -= si * <span class="number">32</span>;</span><br><span class="line">		lan = g / <span class="number">2</span>;</span><br><span class="line">		g -= lan * <span class="number">2</span>;</span><br><span class="line">		gram = g;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">operator</span> <span class="title">CN</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">		<span class="type">int</span> totalGrams = gram;</span><br><span class="line">		totalGrams += lan * <span class="number">2</span>;</span><br><span class="line">		totalGrams += si * <span class="number">32</span>;</span><br><span class="line">		totalGrams += bang * <span class="number">512</span>;</span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> jin = totalGrams / <span class="number">500</span>;</span><br><span class="line">		totalGrams %= <span class="number">500</span>;</span><br><span class="line">		<span class="type">int</span> liang = totalGrams / <span class="number">50</span>;</span><br><span class="line">		totalGrams %= <span class="number">50</span>;</span><br><span class="line">		<span class="type">int</span> qian = totalGrams / <span class="number">5</span>;</span><br><span class="line">		totalGrams %= <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">CN</span>(jin, liang, qian, totalGrams, <span class="string">&quot;中国计重&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(ostream&amp; out)</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		out &lt;&lt; *<span class="keyword">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream&amp; os, <span class="type">const</span> EN&amp; res);</span><br><span class="line">&#125;;</span><br><span class="line">ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream&amp; os, <span class="type">const</span> CN&amp; res)</span><br><span class="line">&#123;</span><br><span class="line">	os &lt;&lt; <span class="string">&quot;中国计重:&quot;</span> &lt;&lt; res.jin &lt;&lt; <span class="string">&quot;斤&quot;</span> &lt;&lt; res.liang &lt;&lt; <span class="string">&quot;两&quot;</span> &lt;&lt; res.qian &lt;&lt; <span class="string">&quot;钱&quot;</span> &lt;&lt; res.gram &lt;&lt; <span class="string">&quot;克&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> os;</span><br><span class="line">&#125;</span><br><span class="line">ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream&amp; os, <span class="type">const</span> EN&amp; res)</span><br><span class="line">&#123;</span><br><span class="line">	os &lt;&lt; <span class="string">&quot;英国计重:&quot;</span> &lt;&lt; res.bang &lt;&lt; <span class="string">&quot;磅&quot;</span> &lt;&lt; res.si &lt;&lt; <span class="string">&quot;盎司&quot;</span> &lt;&lt; res.lan &lt;&lt; <span class="string">&quot;打兰&quot;</span> &lt;&lt; res.gram &lt;&lt; <span class="string">&quot;克&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> os;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 以全局函数方式重载输出运算符，代码3-5行....自行编写</span></span><br><span class="line"><span class="comment">// 重载函数包含两个参数：ostream流对象、Weight类对象，参数可以是对象或对象引用</span></span><br><span class="line"><span class="comment">// 重载函数必须调用参数Weight对象的print方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 主函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> tw;</span><br><span class="line">	<span class="comment">// 创建一个中国计重类对象cn</span></span><br><span class="line">	<span class="comment">// 构造参数对应斤、两、钱、克、类型，其中克和类型是对应基类属性gram和kind</span></span><br><span class="line">	<span class="function">CN <span class="title">cn</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&quot;中国计重&quot;</span>)</span></span>;</span><br><span class="line">	cin &gt;&gt; tw;</span><br><span class="line">	cn.<span class="built_in">Convert</span>(tw); <span class="comment">// 把输入的克数转成中国计重</span></span><br><span class="line">	cout &lt;&lt; cn;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 创建英国计重类对象en</span></span><br><span class="line">	<span class="comment">// 构造参数对应磅、盎司、打兰、克、类型，其中克和类型是对应基类属性gram和kind</span></span><br><span class="line">	<span class="function">EN <span class="title">en</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&quot;英国计重&quot;</span>)</span></span>;</span><br><span class="line">	cin &gt;&gt; tw;</span><br><span class="line">	en.<span class="built_in">Convert</span>(tw); <span class="comment">// 把输入的克数转成英国计重</span></span><br><span class="line">	cout &lt;&lt; en;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 使用类型转换运算符 自动调用 EN 的类型转换运算符</span></span><br><span class="line">	cn = en; <span class="comment">// 把英国计重转成中国计重</span></span><br><span class="line">	cout &lt;&lt; cn;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>类型转换运算符的应用</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/06/22/template/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Aria Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Aria's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/06/22/template/" class="post-title-link" itemprop="url">ticket</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-06-22 22:05:10" itemprop="dateCreated datePublished" datetime="2025-06-22T22:05:10+08:00">2025-06-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
